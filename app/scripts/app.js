@@ -12,6 +12,8 @@ define(['angularAMD', 'angular-route'], function (angularAMD) {
     .otherwise({redirectTo: "/home"});
   });
   
+  console.log("loaded amd");
+  
   angularAMD.bootstrap(app);
   
   return app;
