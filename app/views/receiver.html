@@ -1,0 +1,54 @@
+
+<div class="row">
+
+  <div class="large-4 columns">
+  <div my-customer></div>
+
+ <h3>Choose a media below or enter your own media URL to cast</h3><br>
+        <label>Enter custom media URL</label> <input type="text" name="customMediaURL" value="" size="70" id="customMediaURL"><br>
+        <input type="submit" name="loadCustomMeida" value="Load Custom Media" onclick="loadCustomMedia();">
+
+        <ul class="disc">
+            <li ng-repeat="(key, value) in providersList"><input type="radio" data-ng-click='callMedia(key)'>{{value}}</input> </li>
+        </ul>
+
+    </div>
+
+    <div class="large-4 columns">
+     <img src="images/bunny.jpg" width="250" id="thumb">
+     <img src="images/cast_icon_idle.png" id="casticon" width="30">
+     <input class="vertical" type="range" min="0" max="100" step="1" onmouseup="setReceiverVolume(1-this.value/100,false);">
+
+    </div>
+</div>
+
+<div class="row">
+
+    <div class="large-12 columns">
+      <button data-ng-click="launchApp()">Launch app</button>
+      <button data-ng-click="stopApp()">Stop app</button>
+      <button data-ng-click="loadMedia()">Load Media</button>
+      <button data-ng-click="playMedia()">Play</button>
+      <button data-ng-click="stopMedia()">Stop</button>
+      <span id="muteText">Mute media</span>
+      <input type="checkbox" onclick="muteMedia(this);"> 
+    </div>
+
+</div>
+
+<div class="row">
+
+  <div class="large-12 columns">
+        Progress : <input id="progress" type="range" min="1" max="100" value="1" step="1" onmouseup="seekMedia(this.value);">
+        <span id="duration"></span>
+        <div id="progress_tick"></div>
+      </div>
+        State : <span id="playerstate">IDLE</span>
+        <textarea rows="20" cols="70" id="debugmessage">
+        </textarea>
+
+  </div>
+
+</div>
+
+
